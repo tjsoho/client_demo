@@ -4,6 +4,7 @@
 ****************************************************************/
 
 import { client } from "../../../sanity"; // Import Sanity client
+import Image from 'next/image';
 
 // Define the query to fetch data from Sanity
 const query = `*[_type == "homePage"][0]{
@@ -27,6 +28,13 @@ const query = `*[_type == "homePage"][0]{
     }
   }
 }`;
+
+// Add this interface near the top of your file
+interface SanityImage {
+  asset: {
+    url: string;
+  };
+}
 
 /****************************************************************
                       HOMEPAGE COMPONENT STARTS
@@ -57,10 +65,12 @@ const HomePage = async () => {
         </div>
         <div className="w-1/2">
           {homeData?.sections?.[0]?.image && (
-            <img
+            <Image
               src={homeData.sections[0].image.asset.url}
               alt="Section Image"
-              className="w-full h-auto"
+              width={500}
+              height={300}
+              layout="responsive"
             />
           )}
         </div>
@@ -72,10 +82,12 @@ const HomePage = async () => {
       <section className="h-screen flex items-center justify-between px-8 bg-brand-light-tan">
         <div className="w-1/2">
           {homeData?.sections?.[1]?.image && (
-            <img
+            <Image
               src={homeData.sections[1].image.asset.url}
               alt="Section Image"
-              className="w-full h-auto"
+              width={500}
+              height={300}
+              layout="responsive"
             />
           )}
         </div>
@@ -98,12 +110,14 @@ const HomePage = async () => {
         </h2>
         <div className="grid grid-cols-3 gap-8">
           {homeData?.sections?.[2]?.images &&
-            homeData.sections[2].images.map((image: unknown, idx: number) => (
+            homeData.sections[2].images.map((image: SanityImage, idx: number) => (
               <div key={idx} className="text-center">
-                <img
+                <Image
                   src={image.asset.url}
                   alt={`Gallery Image ${idx + 1}`}
-                  className="w-full h-auto mb-4"
+                  width={300}
+                  height={200}
+                  layout="responsive"
                 />
               </div>
             ))}
