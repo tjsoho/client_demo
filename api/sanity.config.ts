@@ -6,9 +6,9 @@ import { schemaTypes } from './schemaTypes'; // Import your schema
 
 export default defineConfig({
   name: 'default',
-  title: 'SanityBoilerPlate',
+  title: 'client_demo',
 
-  projectId: '2hcufetx', // Replace with your project ID
+  projectId: 'jyn0aimf', // Replace with your project ID
   dataset: 'production',
 
   basePath: '/admin', // Align with your custom subdomain setup

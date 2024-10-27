@@ -43,7 +43,7 @@ const HomePage = async () => {
       {/****************************************************************
                             RENDER SECTION 1
       ***************************************************************/}
-      <section className="h-screen flex items-center justify-between px-8 bg-brand-cream">
+      <section className="h-screen flex items-center justify-between px-8 bg-brand-">
         <div className="w-1/2">
           <h1 className="text-5xl font-bold text-brand-charcoal mb-4 text-center">
             {homeData?.sections?.[0]?.heading || "Heading Not Available"}
@@ -98,7 +98,7 @@ const HomePage = async () => {
         </h2>
         <div className="grid grid-cols-3 gap-8">
           {homeData?.sections?.[2]?.images &&
-            homeData.sections[2].images.map((image: any, idx: number) => (
+            homeData.sections[2].images.map((image: unknown, idx: number) => (
               <div key={idx} className="text-center">
                 <img
                   src={image.asset.url}
