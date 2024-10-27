@@ -43,7 +43,7 @@ const HomePage = async () => {
       {/****************************************************************
                             RENDER SECTION 1
       ***************************************************************/}
-      <section className="h-screen flex items-center justify-between px-8 bg-brand-">
+      <section className="h-screen flex items-center justify-between px-8 bg-brand-cream">
         <div className="w-1/2">
           <h1 className="text-5xl font-bold text-brand-charcoal mb-4 text-center">
             {homeData?.sections?.[0]?.heading || "Heading Not Available"}
